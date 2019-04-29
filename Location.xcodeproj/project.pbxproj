@@ -20,6 +20,8 @@
 		9D04AFD22275880E006EDBC3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04AFD12275880E006EDBC3 /* Constants.swift */; };
 		9D04AFD52275A368006EDBC3 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04AFD42275A368006EDBC3 /* LocationModel.swift */; };
 		9D6A88612275D90D000E2ED4 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A88602275D90D000E2ED4 /* Defaults.swift */; };
+		9D6A886422768EBF000E2ED4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A886322768EBF000E2ED4 /* Reachability.swift */; };
+		9D6A886622768F0A000E2ED4 /* CommenMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A886522768F0A000E2ED4 /* CommenMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		9D04AFD12275880E006EDBC3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9D04AFD42275A368006EDBC3 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		9D6A88602275D90D000E2ED4 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		9D6A886322768EBF000E2ED4 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		9D6A886522768F0A000E2ED4 /* CommenMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommenMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		9D04AFAB22755B8D006EDBC3 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				9D6A886222768EA0000E2ED4 /* Supporting Views */,
 				9D04AFD32275A35D006EDBC3 /* Model */,
 				9D04AFCA22758300006EDBC3 /* Networking */,
 				9D04AFC722756ACE006EDBC3 /* Util */,
@@ -106,6 +111,7 @@
 				9D6A88602275D90D000E2ED4 /* Defaults.swift */,
 				9D04AFC822756ADC006EDBC3 /* Extensions.swift */,
 				9D04AFD12275880E006EDBC3 /* Constants.swift */,
+				9D6A886522768F0A000E2ED4 /* CommenMethods.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -126,6 +132,14 @@
 				9D04AFD42275A368006EDBC3 /* LocationModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9D6A886222768EA0000E2ED4 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D6A886322768EBF000E2ED4 /* Reachability.swift */,
+			);
+			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +223,10 @@
 				9D04AFCE22758570006EDBC3 /* UpdateLocationRequest.swift in Sources */,
 				9D04AFB522755B8D006EDBC3 /* Location.xcdatamodeld in Sources */,
 				9D04AFD52275A368006EDBC3 /* LocationModel.swift in Sources */,
+				9D6A886622768F0A000E2ED4 /* CommenMethods.swift in Sources */,
 				9D04AFAD22755B8D006EDBC3 /* AppDelegate.swift in Sources */,
 				9D04AFCC22758324006EDBC3 /* APIRequest.swift in Sources */,
+				9D6A886422768EBF000E2ED4 /* Reachability.swift in Sources */,
 				9D6A88612275D90D000E2ED4 /* Defaults.swift in Sources */,
 				9D04AFC922756ADC006EDBC3 /* Extensions.swift in Sources */,
 				9D04AFD22275880E006EDBC3 /* Constants.swift in Sources */,

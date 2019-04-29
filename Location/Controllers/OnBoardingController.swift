@@ -31,7 +31,19 @@ class OnBoardingController: UIViewController {
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(statusManager), name: .flagsChanged, object: nil)
+        statusManager()
+    }
+    @objc func statusManager() {
+        if Network.reachability.status == .unreachable {
+            
+            CommonMethods.showAlert(title: "Connection Error", message: "Unable to connect , Please check your connectivity", view: self)
+        }
+        print("Reachability Summary")
+        print("Status:", Network.reachability.status)
+        print("HostName:", Network.reachability.hostname ?? "nil")
+        print("Reachable:", Network.reachability.isReachable)
+        print("Wifi:", Network.reachability.isReachableViaWiFi)
     }
     
     func handleLocationUpdation(incomingLocation : CLLocation) {
@@ -40,8 +52,11 @@ class OnBoardingController: UIViewController {
             let currentLocation = Defaults.getUpdatedLocation()
             
             //Calculating Distance and Time
+            
             let distance = round(incomingLocation.distance(from: currentLocation!))
             let elapsedTime = incomingLocation.timestamp.timeIntervalSince((currentLocation?.timestamp)!).mintutes()
+            print(distance)
+            print(elapsedTime)
             
             if distance >= 100 || elapsedTime >= 2 {
                 updateServer(updateLocation: incomingLocation)
@@ -71,6 +86,7 @@ class OnBoardingController: UIViewController {
     
     @IBAction func stopAction(_ sender: Any) {
         locationManager.stopUpdatingLocation()
+        CommonMethods.showAlert(title: "Success", message: "Location updation is stopped", view: self)
         
     }
 }
@@ -81,5 +97,6 @@ extension OnBoardingController : CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Unable to get Location because of \(error.localizedDescription)")
+        CommonMethods.showAlert(title: "Error", message: error.localizedDescription, view: self)
     }
 }

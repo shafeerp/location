@@ -16,9 +16,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        do {
+            try Network.reachability = Reachability(hostname: "www.google.com")
+        }
+        catch {
+            switch error as? Network.Error {
+            case let .failedToCreateWith(hostname)?:
+                CommonMethods.showAlert(title: "Network error", message: "Failed to create reachability object With host named:, \(hostname)", view:(self.window?.rootViewController)!)
+    
+            case let .failedToInitializeWith(address)?:
+                CommonMethods.showAlert(title: "Network error", message: "Failed to initialize reachability object With address:, \(address)", view:(self.window?.rootViewController)!)
+            case .failedToSetCallout?:
+                CommonMethods.showAlert(title: "Network error", message: "Failed to set callout", view:(self.window?.rootViewController)!)
+               
+            case .failedToSetDispatchQueue?:
+                CommonMethods.showAlert(title: "Network error", message: "Failed to set DispatchQueue", view:(self.window?.rootViewController)!)
+                
+            case .none:
+                CommonMethods.showAlert(title: "Network error", message: error.localizedDescription, view:(self.window?.rootViewController)!)
+                
+            }
+        }
         return true
     }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
